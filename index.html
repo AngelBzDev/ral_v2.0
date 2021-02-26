@@ -10,32 +10,41 @@
    <link rel="stylesheet" href="css/normalize.css">
    <link rel="stylesheet" href="css/app.css">
 </head>
-<body class="font-serif bg-blue-200">
-   <div class="container grid grid-cols-2 px-10 py-10 mx-auto my-10 bg-white rounded-2xl">
-      <div class="text-center">
-         <img src="img/logo.png" alt="Logo ral" class="w-20 mx-auto mb-5">
-         <h1 class="text-5xl font-bold">Bienvenido a RAL</h1>
-         <p class="mb-7">Registro de aulas y laboratorios</p>
-         <div class="flex items-center p-2 mx-auto border rounded shadow w-96">
+<body class="font-serif "><!--bg-gradient-to-r from-blue-300 to-blue-900 -->
+   <div class="my-auto bg-white md:grid md:grid-cols-2 rounded-2xl px-7 md:p-0">
+      <div class="flex flex-col content-center h-screen text-center">
+         <!-- <nav class="container flex items-center content-around w-full px-0 py-2 md:px-2">
+            <img src="img/logo.png" alt="Logo RAL" class="flex-grow-0 w-10">
+            <p class="flex-1 text-3xl font-bold text-center">RAL</p>
+            <a href="#" class="block w-20 p-2 text-center text-white bg-blue-900 rounded">Registro</a>
+         </nav> -->
+         <div class="mt-5 mb:mt-10">
+            <img src="img/logo.png" alt="Logo RAL" class="w-16 mx-auto mb-10">
+            <h1 class="text-4xl font-bold md:text-5xl">Bienvenido a RAL</h1>
+            <p class="mb-7">Registro de aulas y laboratorios</p>
+         </div>
+         <!-- <div class="flex items-center p-2 mx-auto border rounded shadow w-96">
             <img src="img/logo-google.png" alt="Logo de google" class="flex-grow-0 w-6">
             <p class="flex-auto">Inicie con Google</p>
-         </div>
-         <p class="my-5">O inicie con su correo</p>
-         <form action="#" class="mx-auto text-left w-96">
+         </div> -->
+         <p class="text-3xl font-bold mb-7">Iniciar sesión</p>
+         <form action="#" class="w-full mx-auto text-left md:w-7/12">
             <div class="flex flex-col mb-5">
-               <label for="correo">Correo electronico</label>
+               <label for="correo" class="font-medium">Correo electronico</label>
                <input type="email" name="correo" id="correo" placeholder="Ingrese su correo electronico" class="p-2 border border-transparent rounded shadow focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
             </div>
             <div class="flex flex-col mb-5">
-               <label for="pass">Contraseña</label>
+               <label for="pass" class="font-medium">Contraseña</label>
                <input type="password" name="pass" id="pass" placeholder="Ingrese su contraseña" class="p-2 border border-transparent rounded shadow focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
             </div>
-            <button type="submit" class="p-2 mt-5 text-white uppercase transition duration-500 ease-in-out transform bg-blue-900 border rounded shadow w-96 hover:bg-blue-700 hover:-translate-y-1 hover:scale-110">Iniciar sesión</button>
-            <a href="#" class="">Olvido su contraseña</a>
+            <button type="submit" class="w-full p-2.5 font-bold text-white uppercase transition duration-500 ease-in-out transform bg-blue-900 border rounded shadow hover:-translate-y-1 hover:scale-110 mb-5">Iniciar sesión</button>
+            <div class="flex content-between w-full">
+               <p class="flex-1">¿No se ha registrado?</p><a href="#" class="flex-1 font-medium text-right">Hagalo aqui</a>
+            </div>
          </form>
       </div>
-      <div class="">
-         njsoanx
+      <div class="items-center hidden h-full shadow-xl bg-gradient-to-r from-blue-300 to-blue-900 md:flex">
+         <img src="img/libros.png" alt="Banner" class="w-3/4 mx-auto my-">
       </div>
    </div>
 </body>
