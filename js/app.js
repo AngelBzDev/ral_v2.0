@@ -103,7 +103,7 @@ function mostrarError(mensaje){
    const msjErr = document.createElement('P');
    msjErr.id = 'msj-error';
    msjErr.textContent = mensaje;
-   msjErr.classList.add('bg-red-500', 'text-white', 'p-3', 'my-5', 'text-center', 'font-bold', 'capitalize', 'rounded');
+   msjErr.classList.add('bg-red-500', 'text-white', 'p-3', 'my-5', 'text-center', 'font-bold', 'capitalize', 'rounded-lg');
 
    if(!document.getElementById('msj-error'))
       btnLogin.before(msjErr);
