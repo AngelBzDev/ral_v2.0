@@ -7,9 +7,8 @@
    <title>RAL</title>
    <link rel="preconnect" href="https://fonts.gstatic.com">
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="css/normalize.css">
-   <link rel="stylesheet" href="css/app.css">
-   <link rel="stylesheet" href="css/estilos.css">
+   <link rel="stylesheet" href="../css/normalize.css">
+   <link rel="stylesheet" href="../css/app.css">
 </head>
 <body class="h-full font-serif"><!--bg-gradient-to-r from-blue-300 to-blue-900 -->
    <div class="h-full my-auto bg-white md:grid md:grid-cols-2 rounded-2xl px-7 md:p-0">
@@ -19,8 +18,8 @@
             <p class="flex-1 text-3xl font-bold text-center">RAL</p>
             <a href="#" class="block w-20 p-2 text-center text-white bg-blue-900 rounded">Registro</a>
          </nav> -->
-         <div class="mt-5 mb:mt-10 arriba">
-            <img src="img/logo.png" alt="Logo RAL" class="w-16 mx-auto mb-10">
+         <div class="mt-5 mb:mt-10">
+            <img src="../img/logo.png" alt="Logo RAL" class="w-16 mx-auto mb-10">
             <h1 class="text-4xl font-bold md:text-5xl">Bienvenido a RAL</h1>
             <p class="mb-7">Registro de aulas y laboratorios</p>
          </div>
@@ -28,27 +27,8 @@
             <img src="img/logo-google.png" alt="Logo de google" class="flex-grow-0 w-6">
             <p class="flex-auto">Inicie con Google</p>
          </div> -->
-         <div class="flex items-center content-center mx-auto entrada2">
-            <p id="titulo" class="p-2 mr-2 text-lg font-bold text-white bg-blue-900 border border-blue-900 rounded-lg cursor-pointer mb-7 ">Iniciar sesión</p>
-            <p id="titulo-2" class="p-2 ml-2 text-lg font-bold border border-blue-900 rounded-lg cursor-pointer mb-7">Registrarse<p>
-         </div>
-         <form action="#" class="w-full mx-auto mt-6 text-left md:w-7/12 entrar" id="form-login" method="POST">
-            <div id="iniciar-sesion">
-               <div class="flex flex-col mb-5">
-                  <label for="correo" class="font-medium">Correo electronico</label>
-                  <input type="email" name="correo" id="correo" placeholder="Ingrese su correo electronico" class="p-2 border border-transparent rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
-               </div>
-               <div class="flex flex-col mb-5">
-                  <label for="pass" class="font-medium">Contraseña</label>
-                  <input type="password" name="pass" id="pass" placeholder="Ingrese su contraseña" class="p-2 border border-transparent rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" title="La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula. Puede tener otros símbolos." autocomplete="on">
-               </div>
-               <button type="submit" class="w-full p-2.5 font-bold text-white uppercase transition duration-500 ease-in-out transform bg-blue-900 border rounded-lg shadow hover:-translate-y-1 hover:scale-110 mb-5" id="btn-login">Iniciar sesión</button>
-               <div class="flex content-between w-full">
-                  <p class="flex-1">¿No se ha registrado?</p><a href="views/registrarse.html" class="flex-1 font-medium text-right" id="registro">Hagalo aqui</a>
-               </div>
-            </div>
-         </form>
-         <form action="#" class="hidden w-full mx-auto mt-6 text-left md:w-7/12 entrar" id="form-registro" method="POST">
+         <p id="titulo" class="text-3xl font-bold mb-7">Registrarse</p>
+         <form action="#" class="w-full mx-auto text-left md:w-7/12" id="form-login" method="POST">
             <div id="registrarse" class="">
                <div class="flex flex-col mb-5">
                   <label for="nombre" class="font-medium">Nombre Completo</label>
@@ -84,10 +64,10 @@
             </div>
          </form>
       </div>
-      <div class="items-center hidden h-full shadow-xl bg-gradient-to-r from-blue-300 to-blue-900 md:flex entrada2">
-         <img src="img/libros.png" alt="Banner" class="w-3/4 mx-auto imagen">
+      <div class="items-center hidden h-full shadow-xl bg-gradient-to-r from-blue-300 to-blue-900 md:flex">
+         <img src="../img/libros.png" alt="Banner" class="w-3/4 mx-auto my-">
       </div>
    </div>
-   <script src="js/app.js"></script>
+   <script src="../js/registrarse.js></script>
 </body>
 </html>
