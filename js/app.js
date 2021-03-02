@@ -17,6 +17,7 @@ const pass = document.querySelector('#pass');
 
 //Inputs para el registro
 const nombre = document.querySelector('#nombre');
+const apellido = document.querySelector('#apellido');
 const correo2 = document.querySelector('#correo2');
 const pass2 = document.querySelector('#pass2');
 const passConfirm = document.querySelector('#confirmpass');
@@ -46,6 +47,7 @@ function iniciarEventos(){
 
    //Eventos para el registro
    nombre.addEventListener('blur', validarRegistro);
+   apellido.addEventListener('blur', validarRegistro);
    correo2.addEventListener('blur', validarRegistro);
    pass2.addEventListener('blur', validarRegistro);
    passConfirm.addEventListener('blur', validarRegistro);
@@ -165,7 +167,7 @@ function validarRegistro(e){
    //    }
    // }
 
-   if(nombre !== '' && er.test(correo2.value) && erPass.test(pass2.value) &&  passConfirm.value === passGuardada){
+   if(nombre !== ' ' && apellido !== ' '&& er.test(correo2.value) && erPass.test(pass2.value) &&  passConfirm.value === passGuardada){
       if(sexF.checked || sexM.checked){
          btnRegistrarse.disabled = false;
          btnRegistrarse.classList.remove('cursor-not-allowed', 'opacity-50');

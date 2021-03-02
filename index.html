@@ -36,11 +36,11 @@
             <div id="iniciar-sesion">
                <div class="flex flex-col mb-5">
                   <label for="correo" class="font-medium">Correo electronico</label>
-                  <input type="email" name="correo" id="correo" placeholder="Ingrese su correo electronico" class="p-2 border border-transparent rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                  <input type="email" name="correo" id="correo" placeholder="Ingrese su correo electronico" class="p-2 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                </div>
                <div class="flex flex-col mb-5">
                   <label for="pass" class="font-medium">Contraseña</label>
-                  <input type="password" name="pass" id="pass" placeholder="Ingrese su contraseña" class="p-2 border border-transparent rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" title="La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula. Puede tener otros símbolos." autocomplete="on">
+                  <input type="password" name="pass" id="pass" placeholder="Ingrese su contraseña" class="p-2 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" title="La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula. Puede tener otros símbolos." autocomplete="on">
                </div>
                <button type="submit" class="w-full p-2.5 font-bold text-white uppercase transition duration-500 ease-in-out transform bg-blue-900 border rounded-lg shadow hover:-translate-y-1 hover:scale-110 mb-5" id="btn-login">Iniciar sesión</button>
                <div class="flex content-between w-full">
@@ -50,22 +50,28 @@
          </form>
          <form action="#" class="hidden w-full mx-auto mt-6 text-left md:w-7/12 entrar" id="form-registro" method="POST">
             <div id="registrarse" class="">
-               <div class="flex flex-col mb-5">
-                  <label for="nombre" class="font-medium">Nombre Completo</label>
-                  <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" class="p-2 border border-transparent rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+               <div class="block w-full md:grid md:grid-cols-2 md:gap-x-4">
+                  <div class="flex flex-col mb-5">
+                     <label for="nombre" class="font-medium">Nombre(s)</label>
+                     <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" class="w-full p-2 mr-0 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                  </div>
+                  <div class="flex flex-col mb-5 ">
+                     <label for="nombre" class="font-medium">Apellido(s)</label>
+                     <input type="text" name="nombre" id="apellido" placeholder="Ingrese su nombre" class="w-full p-2 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                  </div>
                </div>
                <div class="flex flex-col mb-5">
                   <label for="correo" class="font-medium">Correo electronico</label>
-                  <input type="email" name="correo" id="correo2" placeholder="Ingrese su correo electronico" class="p-2 border border-transparent rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                  <input type="email" name="correo" id="correo2" placeholder="Ingrese su correo electronico" class="p-2 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                </div>
-               <div class="block md:flex">
+               <div class="block w-full md:grid md:grid-cols-2 md:gap-x-4">
                   <div class="flex flex-col mb-5">
                      <label for="pass" class="font-medium">Contraseña</label>
-                     <input type="password" name="pass" id="pass2" placeholder="Ingrese su contraseña" class="w-full p-2 mr-0 border border-transparent rounded-lg shadow-md md:w-11/12 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent md:mr-1" autocomplete="on">
+                     <input type="password" name="pass" id="pass2" placeholder="Ingrese su contraseña" class="w-full p-2 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" autocomplete="on">
                   </div>
-                  <div class="flex flex-col items-start mb-5 md:items-end">
+                  <div class="flex flex-col mb-5">
                      <label for="pass" class="font-medium">Confirme su Contraseña</label>
-                     <input type="password" name="confirmpass" id="confirmpass" placeholder="Ingrese su contraseña" class="w-full p-2 ml-0 border border-transparent rounded-lg shadow-md md:w-11/12 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent md:ml-1" autocomplete="on">
+                     <input type="password" name="confirmpass" id="confirmpass" placeholder="Ingrese su contraseña" class="w-full p-2 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" autocomplete="on">
                   </div>
                </div>
                <div class="flex flex-col mb-5">
