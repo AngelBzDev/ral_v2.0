@@ -15,13 +15,13 @@
 }
 
 .entrar{
-   animation: entrada 1s ease-in;
+   animation: entrada .5s ease;
 }
 .arriba{
-   animation: arriba 1s ease-in;
+   animation: arriba .8s ease;
 }
 .entrada2{
-   animation: entrada2 1s ease-in;
+   animation: entrada2 .8s ease;
 }
 
 @keyframes entrada{

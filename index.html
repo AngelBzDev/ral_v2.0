@@ -19,7 +19,7 @@
             <p class="flex-1 text-3xl font-bold text-center">RAL</p>
             <a href="#" class="block w-20 p-2 text-center text-white bg-blue-900 rounded">Registro</a>
          </nav> -->
-         <div class="mt-5 mb:mt-10 arriba">
+         <div class="mt-10 mb:mt-10 arriba">
             <img src="img/logo.png" alt="Logo RAL" class="w-16 mx-auto mb-10">
             <h1 class="text-4xl font-bold md:text-5xl">Bienvenido a RAL</h1>
             <p class="mb-7">Registro de aulas y laboratorios</p>
@@ -44,7 +44,7 @@
                </div>
                <button type="submit" class="w-full p-2.5 font-bold text-white uppercase transition duration-500 ease-in-out transform bg-blue-900 border rounded-lg shadow hover:-translate-y-1 hover:scale-110 mb-5" id="btn-login">Iniciar sesión</button>
                <div class="flex content-between w-full">
-                  <p class="flex-1">¿No se ha registrado?</p><a href="views/registrarse.html" class="flex-1 font-medium text-right" id="registro">Hagalo aqui</a>
+                  <p class="flex-1">¿No se ha registrado?</p><a class="flex-1 font-medium text-right cursor-pointer" id="registro" onclick="mostrarRegistro()">Hagalo aqui</a>
                </div>
             </div>
          </form>
@@ -61,25 +61,25 @@
                <div class="block md:flex">
                   <div class="flex flex-col mb-5">
                      <label for="pass" class="font-medium">Contraseña</label>
-                     <input type="password" name="pass" id="pass2" placeholder="Ingrese su contraseña" class="w-11/12 p-2 border border-transparent rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent md:mr-1">
+                     <input type="password" name="pass" id="pass2" placeholder="Ingrese su contraseña" class="w-full p-2 mr-0 border border-transparent rounded-lg shadow-md md:w-11/12 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent md:mr-1" autocomplete="on">
                   </div>
-                  <div class="flex flex-col items-end mb-5">
-                     <label for="pass" class="font-medium text-left">Confirme su Contraseña</label>
-                     <input type="password" name="confirmpass" id="confirmpass" placeholder="Ingrese su contraseña" class="w-11/12 p-2 border border-transparent rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent md:ml-1">
+                  <div class="flex flex-col items-start mb-5 md:items-end">
+                     <label for="pass" class="font-medium">Confirme su Contraseña</label>
+                     <input type="password" name="confirmpass" id="confirmpass" placeholder="Ingrese su contraseña" class="w-full p-2 ml-0 border border-transparent rounded-lg shadow-md md:w-11/12 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent md:ml-1" autocomplete="on">
                   </div>
                </div>
                <div class="flex flex-col mb-5">
                   <label for="sexo" class="font-medium">Sexo</label>
                   <div class="flex items-center">
                      <p class="mr-1">Femenino</p>
-                     <input type="radio" name="confirmpass" id="femenino"  class="" value="femenino">
+                     <input type="radio" name="sexo" id="femenino" value="femenino">
                      <p class="ml-10 mr-1">Masculino</p>
-                     <input type="radio" name="confirmpass" id="masculino"  class="" value="masculino">
+                     <input type="radio" name="sexo" id="masculino" value="masculino">
                   </div>
                </div>
                <button type="submit" class="w-full p-2.5 font-bold text-white uppercase transition duration-500 ease-in-out transform bg-blue-900 border rounded-lg shadow hover:-translate-y-1 hover:scale-110 mb-5" id="btn-registrarse">Registrarse</button>
                <div class="flex content-between w-full mb-10">
-                  <p class="flex-1">¿Ya esta registrado?</p><a href="../index.html" class="flex-1 font-medium text-right" id="iniciar">Iniciar sesión</a>
+                  <p class="flex-1">¿Ya esta registrado?</p><a class="flex-1 font-medium text-right cursor-pointer" id="iniciar" onclick="mostrarLogin();">Iniciar sesión</a>
                </div>
             </div>
          </form>
