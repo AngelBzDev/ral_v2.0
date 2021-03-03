@@ -33,6 +33,9 @@ const er = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0
 //Para la contraseña
 const erPass = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
 
+//Para el nombre y apellidos
+const erNombre = /^[A-Za-zÁÉÍÓÚáéíóúñÑ]{3,30}/;
+
 //Eventos
 iniciarEventos();
 function iniciarEventos(){
@@ -120,6 +123,28 @@ function validarRegistro(e){
       e.target.classList.remove('border-green-500')
       e.target.classList.add('border', 'border-red-500');
       mostrarError('Todos los campos son obligatorios');
+   }
+
+   if(e.target.id === 'nombre'){
+      if(erNombre.test(e.target.value)){
+         console.log('Nombre valido');
+      }
+      else{
+         mostrarError('Nombre no valido');
+         e.target.classList.remove('border-green-500');
+         e.target.classList.add('border', 'border-red-500');
+      }
+   }
+
+   if(e.target.id === 'apellido'){
+      if(erNombre.test(e.target.value)){
+         console.log('Apellido valido');
+      }
+      else{
+         mostrarError('Apellido no valido');
+         e.target.classList.remove('border-green-500');
+         e.target.classList.add('border', 'border-red-500');
+      }
    }
 
    if(e.target.type === 'email') {
