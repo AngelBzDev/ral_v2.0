@@ -18,10 +18,10 @@
    animation: entrada .5s ease;
 }
 .arriba{
-   animation: arriba .8s ease;
+   animation: arriba .5s ease;
 }
 .entrada2{
-   animation: entrada2 .8s ease;
+   animation: entrada2 .5s ease;
 }
 
 @keyframes entrada{

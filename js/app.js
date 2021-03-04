@@ -26,6 +26,8 @@ const sexM = document.querySelector('#masculino');
 
 let passGuardada = "";
 
+const checkMostrar = document.querySelector('#mostrar');
+const checkMostrar2 = document.querySelector('#mostrar2');
 //Expresiones regulares
 //Para el correo
 const er = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -56,6 +58,9 @@ function iniciarEventos(){
    passConfirm.addEventListener('blur', validarRegistro);
    sexF.addEventListener('click', validarRegistro);
    sexM.addEventListener('click', validarRegistro);
+
+   checkMostrar.addEventListener('change', mostrarContrasena);
+   checkMostrar2.addEventListener('change', mostrarContrasena);
 }
 
 //Funciones
@@ -157,12 +162,9 @@ function validarRegistro(e){
       }
    }
 
-   if(e.target.type === 'password'){
+   if(e.target.id === 'pass2'){
       if(erPass.test(e.target.value)){
-         if(e.target.id === 'pass2'){
-            passGuardada = e.target.value;
-         }
-         console.log(passGuardada);
+         passGuardada = e.target.value;
       }
       else{
          mostrarError('La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula. Puede tener otros símbolos.');
@@ -239,4 +241,21 @@ function mostrarLogin(){
    titulo2.classList.remove('bg-blue-900', 'text-white');
    formLogin.classList.remove('hidden');
    formRegistro.classList.add('hidden');
+}
+
+function mostrarContrasena(){
+   if(this.checked) {
+      if(formRegistro.classList.contains('hidden'))
+         pass.type = "text";
+      else
+         pass2.type = "text";
+         passConfirm.type = "text";
+   }
+   else {
+      if(formRegistro.classList.contains('hidden'))
+         pass.type = "password";
+      else
+         pass2.type = "password";
+         passConfirm.type = "password";
+   }
 }
