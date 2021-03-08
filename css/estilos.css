@@ -56,3 +56,38 @@
       transform: translateY(0);
    }
 }
+
+#banner{
+   position: relative;
+}
+
+/* #banner::before{
+   content: '';
+   position: absolute;
+   background-color: black;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   left: 0;
+   opacity: .5;
+} */
+
+/* .cards{
+   position: relative;;
+}
+
+.cards::before{
+   content: '';
+   position: absolute;
+   background-color: black;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   left: 0;
+   opacity: .2;
+}
+
+.cards-p{
+   top: 50%;
+   right: 50%;
+} */

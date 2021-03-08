@@ -96,14 +96,14 @@ function validarFormulario(e){
       }
    }
 
-   if(e.target.type === 'password'){
+   if(e.target.id === 'pass'){
       if(erPass.test(e.target.value)){
-         console.log('contraseña valida');
-         console.log(e.target.value);
+         e.target.classList.add('border-green-500');
       }
       else{
          mostrarError('La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula. Puede tener otros símbolos.');
          e.target.classList.remove('border-green-500');
+         e.target.classList.add('border-red-500');
       }
    }
 
@@ -143,7 +143,7 @@ function validarRegistro(e){
 
    if(e.target.id === 'apellido'){
       if(erNombre.test(e.target.value)){
-         console.log('Apellido valido');
+         e.target.classList.add('border-green-500');
       }
       else{
          mostrarError('Apellido no valido');
@@ -154,7 +154,7 @@ function validarRegistro(e){
 
    if(e.target.type === 'email') {
       if(er.test(e.target.value)){
-         console.log('valido');
+         e.target.classList.add('border-green-500');
       }
       else{
          mostrarError('El correo no es valido');
@@ -175,12 +175,11 @@ function validarRegistro(e){
 
    if(e.target.id === 'confirmpass'){
       if(e.target.value === passGuardada){
-         console.log('Son iguales');
-         console.log(e.target.value);
+         e.target.classList.add('border-green-500');
       }
       else{
          mostrarError('Las contraseñas no coinciden');
-         e.target.classList.remove('border-green-500')
+         e.target.classList.remove('border-green-500');
          e.target.classList.add('border', 'border-red-500');
       }
    }

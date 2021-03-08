@@ -32,7 +32,7 @@
             <p id="titulo" class="p-2 text-lg font-bold text-white transition duration-500 ease-in-out transform bg-blue-900 border-b border-blue-900 rounded-lg cursor-pointer mb-7 hover:-translate-y-1 hover:scale-110">Iniciar</p>
             <p id="titulo-2" class="p-2 text-lg font-bold transition duration-500 ease-in-out transform border-b border-blue-900 rounded-lg cursor-pointer mb-7 hover:-translate-y-1 hover:scale-110">Registrarse<p>
          </div>
-         <form action="#" class="w-full mx-auto mt-6 text-left md:w-7/12 entrar" id="form-login" method="POST">
+         <form action="./views/home.html" class="w-full mx-auto mt-6 text-left md:w-7/12 entrar" id="form-login">
             <div id="iniciar-sesion">
                <div class="flex flex-col mb-5">
                   <label for="correo" class="font-medium">Correo electronico</label>
@@ -46,13 +46,13 @@
                   <input type="checkbox" name="mostrar" id="mostrar">
                   <label for="mostrar">Mostrar Contraseña</label>
                </div>
-               <button type="submit" class="w-full p-2.5 font-bold text-white uppercase transition duration-500 ease-in-out transform bg-blue-900 border rounded-lg shadow hover:-translate-y-1 hover:scale-110 mb-5 " id="btn-login">Iniciar sesión</button>
+               <input type="submit" class="w-full p-2.5 font-bold text-white uppercase transition duration-500 ease-in-out transform bg-blue-900 border rounded-lg shadow hover:-translate-y-1 hover:scale-110 mb-5" id="btn-login">Iniciar sesión</input>
                <div class="flex content-between w-full">
                   <p class="flex-1">¿No se ha registrado?</p><a class="flex-1 font-medium text-right cursor-pointer" id="registro" onclick="mostrarRegistro()">Hagalo aqui</a>
                </div>
             </div>
          </form>
-         <form action="#" class="hidden w-full mx-auto mt-6 text-left md:w-7/12 entrar" id="form-registro" method="POST">
+         <form action="./views/home.html" class="hidden w-full mx-auto mt-6 text-left md:w-7/12 entrar" id="form-registro" method="POST">
             <div id="registrarse" class="">
                <div class="block w-full md:grid md:grid-cols-2 md:gap-x-4">
                   <div class="flex flex-col mb-5">
