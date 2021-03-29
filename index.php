@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="h-full">
+<html lang="es">
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +7,11 @@
    <title>RAL</title>
    <link rel="preconnect" href="https://fonts.gstatic.com">
    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="css/normalize.css">
-   <link rel="stylesheet" href="css/app.css">
-   <link rel="stylesheet" href="css/estilos.css">
+   <link rel="stylesheet" href="./css/normalize.css">
+   <link rel="stylesheet" href="./css/app.css">
+   <link rel="stylesheet" href="./css/estilos.css">
 </head>
-<body class="h-full font-serif"><!--bg-gradient-to-r from-blue-300 to-blue-900 -->
+<body class="h-screen font-serif"><!--bg-gradient-to-r from-blue-300 to-blue-900 -->
    <div class="h-full my-auto bg-white md:grid md:grid-cols-2 rounded-2xl px-7 md:p-0">
       <div class="flex flex-col content-center h-full text-center" >
          <!-- <nav class="container flex items-center content-around w-full px-0 py-2 md:px-2">
@@ -29,9 +29,10 @@
             <p class="flex-auto">Inicie con Google</p>
          </div> -->
          <div class="grid w-full grid-cols-2 mx-auto gap-x-4 md:w-7/12 entrada2">
-            <p id="titulo" class="p-2 text-lg font-bold text-white transition duration-500 ease-in-out transform bg-blue-900 border-b border-blue-900 rounded-lg cursor-pointer mb-7 hover:-translate-y-1 hover:scale-110">Iniciar</p>
-            <p id="titulo-2" class="p-2 text-lg font-bold transition duration-500 ease-in-out transform border-b border-blue-900 rounded-lg cursor-pointer mb-7 hover:-translate-y-1 hover:scale-110">Registrarse<p>
+            <p id="titulo" class="p-2 text-lg font-bold text-white uppercase transition duration-500 ease-in-out transform bg-blue-900 border-b border-blue-900 rounded-lg cursor-pointer mb-7 hover:-translate-y-1 hover:scale-110">Iniciar</p>
+            <p id="titulo-2" class="p-2 text-lg font-bold uppercase transition duration-500 ease-in-out transform border-b border-blue-900 rounded-lg cursor-pointer mb-7 hover:-translate-y-1 hover:scale-110">Registrarse<p>
          </div>
+         <!--Formulario de incio de sesión-->
          <form action="./views/home.html" class="w-full mx-auto mt-6 text-left md:w-7/12 entrar" id="form-login">
             <div id="iniciar-sesion">
                <div class="flex flex-col mb-5">
@@ -51,8 +52,9 @@
                   <p class="flex-1">¿No se ha registrado?</p><a class="flex-1 font-medium text-right cursor-pointer" id="registro" onclick="mostrarRegistro()">Hagalo aqui</a>
                </div>
             </div>
-         </form>
-         <form action="./views/home.html" class="hidden w-full mx-auto mt-6 text-left md:w-7/12 entrar" id="form-registro" method="POST">
+         </form><!--Cierre de Formulario de incio de sesión-->
+         <!--Formulario de registro-->
+         <form class="hidden w-full mx-auto mt-6 text-left md:w-7/12 entrar" id="form-registro" method="POST">
             <div id="registrarse" class="">
                <div class="block w-full md:grid md:grid-cols-2 md:gap-x-4">
                   <div class="flex flex-col mb-5">
@@ -60,22 +62,22 @@
                      <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" class="w-full p-2 mr-0 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                   </div>
                   <div class="flex flex-col mb-5 ">
-                     <label for="nombre" class="font-medium">Apellido(s)</label>
-                     <input type="text" name="nombre" id="apellido" placeholder="Ingrese su apellido" class="w-full p-2 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                     <label for="apellido" class="font-medium">Apellido(s)</label>
+                     <input type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido" class="w-full p-2 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                   </div>
                </div>
                <div class="flex flex-col mb-5">
                   <label for="correo" class="font-medium">Correo electronico</label>
-                  <input type="email" name="correo" id="correo2" placeholder="Ingrese su correo electronico" class="p-2 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
+                  <input type="email" name="correo2" id="correo2" placeholder="Ingrese su correo electronico" class="p-2 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                </div>
                <div class="block w-full md:grid md:grid-cols-2 md:gap-x-4">
                   <div class="flex flex-col mb-5 md:mb-1">
                      <label for="pass" class="font-medium">Contraseña</label>
-                     <input type="password" name="pass" id="pass2" placeholder="Ingrese su contraseña" class="w-full p-2 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" autocomplete="on">
+                     <input type="password" name="pass2" id="pass2" placeholder="Ingrese su contraseña" class="w-full p-2 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" autocomplete="on">
                   </div>
                   <div class="flex flex-col mb-1">
                      <label for="pass" class="font-medium">Confirme su Contraseña</label>
-                     <input type="password" name="confirmpass" id="confirmpass" placeholder="Ingrese su contraseña" class="w-full p-2 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" autocomplete="on">
+                     <input type="password" name="confirmpass" id="confirmpass" placeholder="Confirme su Contraseña" class="w-full p-2 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" autocomplete="on">
                   </div>
                   <div class="mb-5">
                      <input type="checkbox" name="mostrar2" id="mostrar2" class="checked:bg-blue-600 checked:border-transparent">
@@ -86,9 +88,9 @@
                   <label for="sexo" class="font-medium">Sexo</label>
                   <div class="flex items-center">
                      <p class="mr-1">Femenino</p>
-                     <input type="radio" name="sexo" id="femenino" value="femenino" class="w-4 h-4">
+                     <input type="radio" name="sexo" id="femenino" value="f" class="w-4 h-4 sexo">
                      <p class="ml-10 mr-1">Masculino</p>
-                     <input type="radio" name="sexo" id="masculino" value="masculino" class="w-4 h-4">
+                     <input type="radio" name="sexo" id="masculino" value="m" class="w-4 h-4 sexo">
                   </div>
                </div>
                <button type="submit" class="w-full p-2.5 font-bold text-white uppercase transition duration-500 ease-in-out transform bg-blue-900 border rounded-lg shadow hover:-translate-y-1 hover:scale-110 mb-5" id="btn-registrarse">Registrarse</button>
@@ -96,12 +98,14 @@
                   <p class="flex-1">¿Ya esta registrado?</p><a class="flex-1 font-medium text-right cursor-pointer" id="iniciar" onclick="mostrarLogin();">Iniciar sesión</a>
                </div>
             </div>
-         </form>
+         </form><!--Cierre de Formulario de registro-->
       </div>
       <div class="items-center hidden h-full shadow-xl bg-gradient-to-r from-blue-300 to-blue-900 md:flex entrada2">
          <img src="img/libros.png" alt="Banner" class="w-3/4 mx-auto imagen">
       </div>
    </div>
+   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
    <script src="js/app.js"></script>
+   <script src="./js/index.js"></script>
 </body>
 </html>

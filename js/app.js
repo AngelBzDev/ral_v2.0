@@ -36,7 +36,7 @@ const er = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0
 const erPass = /^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/;
 
 //Para el nombre y apellidos
-const erNombre = /^[A-Za-zÁÉÍÓÚáéíóúñÑ]{3,30}/;
+const erNombre = /^[a-z ,.'-]+$/i;//^[A-Za-zÁÉÍÓÚáéíóúñÑ]{3,30}/;
 
 //Eventos
 iniciarEventos();
@@ -73,7 +73,6 @@ function iniciarApp(){
    btnRegistrarse.disabled = true;
    btnRegistrarse.classList.add('cursor-not-allowed', 'opacity-50');
    btnRegistrarse.classList.remove('hover:-translate-y-1', 'hover:scale-110');
-
 }
 
 function validarFormulario(e){
@@ -93,6 +92,7 @@ function validarFormulario(e){
       else{
          mostrarError('El correo no es valido');
          e.target.classList.remove('border-green-500');
+         e.target.classList.add('border-red-500');
       }
    }
 
@@ -116,6 +116,7 @@ function validarFormulario(e){
       btnLogin.disabled = true;
       btnLogin.classList.add('cursor-not-allowed', 'opacity-50');
       btnLogin.classList.remove('hover:-translate-y-1', 'hover:scale-110');
+      iniciarApp();
    }
 }
 
@@ -128,6 +129,7 @@ function validarRegistro(e){
       e.target.classList.remove('border-green-500')
       e.target.classList.add('border', 'border-red-500');
       mostrarError('Todos los campos son obligatorios');
+      iniciarApp();
    }
 
    if(e.target.id === 'nombre'){
@@ -138,6 +140,7 @@ function validarRegistro(e){
          mostrarError('Nombre no valido');
          e.target.classList.remove('border-green-500');
          e.target.classList.add('border', 'border-red-500');
+         iniciarApp();
       }
    }
 
@@ -149,6 +152,7 @@ function validarRegistro(e){
          mostrarError('Apellido no valido');
          e.target.classList.remove('border-green-500');
          e.target.classList.add('border', 'border-red-500');
+         iniciarApp();
       }
    }
 
@@ -159,6 +163,7 @@ function validarRegistro(e){
       else{
          mostrarError('El correo no es valido');
          e.target.classList.remove('border-green-500');
+         e.target.classList.add('border-red-500');
       }
    }
 
@@ -204,6 +209,7 @@ function validarRegistro(e){
       btnRegistrarse.disabled = true;
       btnRegistrarse.classList.add('cursor-not-allowed', 'opacity-50');
       btnRegistrarse.classList.remove('hover:-translate-y-1', 'hover:scale-110');
+      iniciarApp();
    }
 }
 
@@ -212,7 +218,7 @@ function mostrarError(mensaje){
    const msjErr = document.createElement('P');
    msjErr.id = 'msj-error';
    msjErr.textContent = mensaje;
-   msjErr.classList.add('bg-red-500', 'text-white', 'p-3', 'my-5', 'text-center', 'font-bold', 'capitalize', 'rounded-lg');
+   msjErr.classList.add('bg-red-500', 'text-white', 'p-3', 'my-5', 'text-center', 'font-bold', 'uppercase', 'rounded-lg');
 
    if(formLogin.classList.contains('hidden')){
       if(!document.getElementById('msj-error'))
