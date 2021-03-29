@@ -83,11 +83,12 @@ function validarFormulario(e){
       e.target.classList.remove('border-green-500')
       e.target.classList.add('border', 'border-red-500');
       mostrarError('Todos los campos son obligatorios');
+      iniciarApp();
    }
 
    if(e.target.type === 'email') {
       if(er.test(e.target.value)){
-         console.log('valido');
+         e.target.classList.add('border-green-500');
       }
       else{
          mostrarError('El correo no es valido');
@@ -134,7 +135,7 @@ function validarRegistro(e){
 
    if(e.target.id === 'nombre'){
       if(erNombre.test(e.target.value)){
-         console.log('Nombre valido');
+         e.target.classList.add('border-green-500');
       }
       else{
          mostrarError('Nombre no valido');
@@ -198,7 +199,7 @@ function validarRegistro(e){
    //    }
    // }
 
-   if(nombre !== ' ' && apellido !== ' '&& er.test(correo2.value) && erPass.test(pass2.value) &&  passConfirm.value === passGuardada){
+   if(nombre !== '' && erNombre.test(nombre.value) && apellido !== '' && erNombre.test(apellido.value) && er.test(correo2.value) && erPass.test(pass2.value) &&  passConfirm.value === passGuardada){
       if(sexF.checked || sexM.checked){
          btnRegistrarse.disabled = false;
          btnRegistrarse.classList.remove('cursor-not-allowed', 'opacity-50');
@@ -218,7 +219,7 @@ function mostrarError(mensaje){
    const msjErr = document.createElement('P');
    msjErr.id = 'msj-error';
    msjErr.textContent = mensaje;
-   msjErr.classList.add('bg-red-500', 'text-white', 'p-3', 'my-5', 'text-center', 'font-bold', 'uppercase', 'rounded-lg');
+   msjErr.classList.add('bg-red-50', 'text-red-500', 'p-3', 'my-5', 'text-center', 'font-bold', 'uppercase', 'rounded-lg', 'border', 'border-red-500');
 
    if(formLogin.classList.contains('hidden')){
       if(!document.getElementById('msj-error'))
@@ -263,4 +264,22 @@ function mostrarContrasena(){
          pass2.type = "password";
          passConfirm.type = "password";
    }
+}
+
+function mostrarMsjExito(mensaje){
+   const msjExito = document.createElement('P');
+   msjExito.id = 'msj-exito';
+   msjExito.textContent = mensaje;
+   msjExito.classList.add('bg-green-50', 'text-green-500', 'p-3', 'my-5', 'text-center', 'font-bold', 'uppercase', 'rounded-lg', 'border', 'border-green-500');
+   if(formLogin.classList.contains('hidden')){
+      if(!document.getElementById('msj-error'))
+      btnRegistrarse.before(msjExito);
+   }
+   else{
+      if(!document.getElementById('msj-exito'))
+      btnLogin.before(msjExito);
+   }
+   setTimeout(() => {
+      msjExito.remove();
+   }, 5000);
 }

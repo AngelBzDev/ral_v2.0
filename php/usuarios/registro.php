@@ -3,7 +3,7 @@
    //Guardando los valores del formulario
    $nombre = $_POST['nombre'];
    $apellido = $_POST['apellido'];
-   $correo = $_POST['correo2'];
+   $correo = strtolower($_POST['correo2']);
    $pass = password_hash($_POST['pass2'], PASSWORD_DEFAULT);
    $sexo = $_POST['sexo'];
    // echo $pass;

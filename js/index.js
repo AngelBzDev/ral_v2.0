@@ -25,22 +25,34 @@ $(document).ready(function(){
       });
    });
 
-   function mostrarMsjExito(mensaje){
-      const msjErr = document.createElement('P');
-      msjErr.id = 'msj-error';
-      msjErr.textContent = mensaje;
-      msjErr.classList.add('bg-green-500', 'text-white', 'p-3', 'my-5', 'text-center', 'font-bold', 'uppercase', 'rounded-lg');
-      if(formLogin.classList.contains('hidden')){
-         if(!document.getElementById('msj-error'))
-         btnRegistrarse.before(msjErr);
-      }
-      else{
-         if(!document.getElementById('msj-error'))
-         btnLogin.before(msjErr);
-      }
-      setTimeout(() => {
-         msjErr.remove();
-      }, 4000);
-   }
+   $('#form-login').submit(function(e){
+      e.preventDefault();
+      const datos = {
+         correo: $('#correo').val(),
+         pass: $('#pass').val()
+      };
+
+      $.post('./php/usuarios/login.php', datos, function(r){
+         
+         console.log(r);
+         if(r === "1"){
+            $(location).attr('href','./views/home.php');
+         }
+         if(r === "2"){
+            // console.log("La contraseña es incorrecta");
+            mostrarError("La contraseña es incorrecta");
+            $('#pass').removeClass('border-green-500');
+            $('#pass').addClass('border-red-500');
+            iniciarApp();
+         }
+         if(r === "3"){
+            mostrarError("El correo no esta registrado");
+            // console.log("El correo no esta registrado");
+            $('#correo').removeClass('border-green-500');
+            $('#correo').addClass('border-red-500');
+            iniciarApp();
+         }
+      });
+   });
 });
 

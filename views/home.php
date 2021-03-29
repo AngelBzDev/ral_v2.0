@@ -1,3 +1,12 @@
+<?php
+   require '../php/funciones.php';
+
+   $auth = verificarAutentificacion();
+   if(!$auth){
+      header('Location:../index.html');
+   }
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -16,7 +25,7 @@
       <header class="relative w-full arriba">
          <nav class="container flex items-center justify-between px-4 py-2 mx-auto md:px-20">
             <img src="../img/logo.png" alt="Logo RAL" class="w-8 md:w-12">
-            <a class="block text-base text-white md:text-xl" href="../index.html">Cerrar Sesión</a>
+            <a class="block text-base text-white md:text-xl" href="../php/cerrar_sesion.php">Cerrar Sesión</a>
          </nav>
       </header>
       <div class="container items-center justify-between px-6 py-6 mx-auto md:px-20 md:py-10 md:flex">
