@@ -33,8 +33,6 @@ $(document).ready(function(){
       };
 
       $.post('./php/usuarios/login.php', datos, function(r){
-         
-         console.log(r);
          if(r === "1"){
             $(location).attr('href','./views/home.php');
          }
@@ -55,4 +53,3 @@ $(document).ready(function(){
       });
    });
 });
-

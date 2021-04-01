@@ -13,12 +13,16 @@
       //verificar contraseña
       $usuario = mysqli_fetch_assoc($result);
       $auth = password_verify($pass, $usuario['pass']);
+      $nombre = $usuario['nombres'];
+      $sexo = $usuario['sexo'];
 
       if($auth){
          session_start();
 
          $_SESSION['usuario'] = $usuario['correo'];
          $_SESSION['login'] = true;
+         $_SESSION['nombres'] = $usuario['nombres'];
+         $_SESSION['sexo'] = $usuario['sexo'];
 
          echo $respuesta = 1;
          // var_dump($_SESSION);

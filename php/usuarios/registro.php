@@ -1,8 +1,8 @@
 <?php
    require '../config/database.php';
    //Guardando los valores del formulario
-   $nombre = $_POST['nombre'];
-   $apellido = $_POST['apellido'];
+   $nombre = ucwords($_POST['nombre']);
+   $apellido = ucwords($_POST['apellido']);
    $correo = strtolower($_POST['correo2']);
    $pass = password_hash($_POST['pass2'], PASSWORD_DEFAULT);
    $sexo = $_POST['sexo'];
