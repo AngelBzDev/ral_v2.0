@@ -5,8 +5,9 @@
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <meta name="description" content="RAL es una aplicacion web para ayudar a los profesores a apartar sus aulas">
+   <link rel="shortcut icon" type="image/png" href="./img/favicon.png">
    <title>RAL</title>
-   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <!--<link rel="preconnect" href="https://fonts.gstatic.com">-->
    <!-- <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> -->
    <!-- <link rel="stylesheet" href="./css/normalize.css"> -->
    <!-- <link rel="stylesheet" href="./css/app.css"> -->
@@ -17,17 +18,17 @@
    <div class="h-full my-auto bg-white md:grid md:grid-cols-2 rounded-2xl px-7 md:p-0">
       <div class="flex flex-col content-center h-full text-center" >
          <!-- <nav class="container flex items-center content-around w-full px-0 py-2 md:px-2">
-            <img src="img/logo.png" alt="Logo RAL" class="flex-grow-0 w-10">
+            <img src="img/favicon.png" alt="favicon RAL" class="flex-grow-0 w-10">
             <p class="flex-1 text-3xl font-bold text-center">RAL</p>
             <a href="#" class="block w-20 p-2 text-center text-white bg-blue-900 rounded">Registro</a>
          </nav> -->
          <div class="mt-10 mb:mt-10 arriba">
-            <img src="img/logo.png" alt="Logo RAL" class="w-16 mx-auto mb-10">
+            <img src="img/favicon.png" alt="favicon RAL" class="w-16 mx-auto mb-10">
             <h1 class="text-4xl font-bold md:text-5xl">Bienvenido a RAL</h1>
             <p class="mb-7">Registro de aulas y laboratorios</p>
          </div>
          <!-- <div class="flex items-center p-2 mx-auto border rounded shadow w-96">
-            <img src="img/logo-google.png" alt="Logo de google" class="flex-grow-0 w-6">
+            <img src="img/favicon-google.png" alt="favicon de google" class="flex-grow-0 w-6">
             <p class="flex-auto">Inicie con Google</p>
          </div> -->
          <div class="grid w-full grid-cols-2 mx-auto gap-x-4 md:w-7/12 entrada2">
@@ -38,11 +39,11 @@
          <form class="w-full mx-auto mt-6 text-left md:w-7/12 entrar" id="form-login">
             <div id="iniciar-sesion">
                <div class="flex flex-col mb-5">
-                  <label for="correo" class="font-medium">Correo electronico</label>
+                  <label for="correo" class="font-normal">Correo electronico</label>
                   <input type="email" name="correo" id="correo" placeholder="Ingrese su correo electronico" class="p-2 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                </div>
                <div class="flex flex-col mb-1">
-                  <label for="pass" class="font-medium">Contraseña</label>
+                  <label for="pass" class="font-normal">Contraseña</label>
                   <input type="password" name="pass" id="pass" placeholder="Ingrese su contraseña" class="p-2 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" title="La contraseña debe tener entre 8 y 16 caracteres, al menos un dígito, al menos una minúscula y al menos una mayúscula. Puede tener otros símbolos." autocomplete="on">
                </div>
                <div class="mb-5">
@@ -51,7 +52,7 @@
                </div>
                <input type="submit" class="w-full p-2.5 font-bold text-white uppercase transition duration-500 ease-in-out transform bg-blue-900 border rounded-lg shadow hover:-translate-y-1 hover:scale-110 mb-5" id="btn-login" value="Iniciar sesión"></input>
                <div class="flex content-between w-full">
-                  <p class="flex-1">¿No se ha registrado?</p><a class="flex-1 font-medium text-right cursor-pointer" id="registro" onclick="mostrarRegistro()">Hagalo aqui</a>
+                  <p class="flex-1">¿No se ha registrado?</p><a class="flex-1 font-normal text-right cursor-pointer" id="registro" onclick="mostrarRegistro()">Hagalo aqui</a>
                </div>
             </div>
          </form><!--Cierre de Formulario de incio de sesión-->
@@ -60,25 +61,25 @@
             <div id="registrarse" class="">
                <div class="block w-full md:grid md:grid-cols-2 md:gap-x-4">
                   <div class="flex flex-col mb-5">
-                     <label for="nombre" class="font-medium">Nombre(s)</label>
+                     <label for="nombre" class="font-normal">Nombre(s)</label>
                      <input type="text" name="nombre" id="nombre" placeholder="Ingrese su nombre" class="w-full p-2 mr-0 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                   </div>
                   <div class="flex flex-col mb-5 ">
-                     <label for="apellido" class="font-medium">Apellido(s)</label>
+                     <label for="apellido" class="font-normal">Apellido(s)</label>
                      <input type="text" name="apellido" id="apellido" placeholder="Ingrese su apellido" class="w-full p-2 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                   </div>
                </div>
                <div class="flex flex-col mb-5">
-                  <label for="correo" class="font-medium">Correo electronico</label>
+                  <label for="correo" class="font-normal">Correo electronico</label>
                   <input type="email" name="correo2" id="correo2" placeholder="Ingrese su correo electronico" class="p-2 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent">
                </div>
                <div class="block w-full md:grid md:grid-cols-2 md:gap-x-4">
                   <div class="flex flex-col mb-5 md:mb-1">
-                     <label for="pass" class="font-medium">Contraseña</label>
+                     <label for="pass" class="font-normal">Contraseña</label>
                      <input type="password" name="pass2" id="pass2" placeholder="Ingrese su contraseña" class="w-full p-2 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" autocomplete="on">
                   </div>
                   <div class="flex flex-col mb-1">
-                     <label for="pass" class="font-medium">Confirme su Contraseña</label>
+                     <label for="pass" class="font-normal">Confirme Contraseña</label>
                      <input type="password" name="confirmpass" id="confirmpass" placeholder="Confirme su Contraseña" class="w-full p-2 border border-transparent border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" autocomplete="on">
                   </div>
                   <div class="mb-5">
@@ -87,7 +88,7 @@
                   </div>
                </div>
                <div class="flex flex-col mb-5">
-                  <label for="sexo" class="font-medium">Sexo</label>
+                  <label for="sexo" class="font-normal">Sexo</label>
                   <div class="flex items-center">
                      <p class="mr-1">Femenino</p>
                      <input type="radio" name="sexo" id="femenino" value="f" class="w-4 h-4 sexo">
@@ -97,7 +98,7 @@
                </div>
                <button type="submit" class="w-full p-2.5 font-bold text-white uppercase transition duration-500 ease-in-out transform bg-blue-900 border rounded-lg shadow hover:-translate-y-1 hover:scale-110 mb-5" id="btn-registrarse">Registrarse</button>
                <div class="flex content-between w-full mb-10">
-                  <p class="flex-1">¿Ya esta registrado?</p><a class="flex-1 font-medium text-right cursor-pointer" id="iniciar" onclick="mostrarLogin();">Iniciar sesión</a>
+                  <p class="flex-1">¿Ya esta registrado?</p><a class="flex-1 font-normal text-right cursor-pointer" id="iniciar" onclick="mostrarLogin();">Iniciar sesión</a>
                </div>
             </div>
          </form><!--Cierre de Formulario de registro-->

@@ -219,7 +219,7 @@ function mostrarError(mensaje){
    const msjErr = document.createElement('P');
    msjErr.id = 'msj-error';
    msjErr.textContent = mensaje;
-   msjErr.classList.add('bg-red-50', 'text-red-500', 'p-3', 'my-5', 'text-center', 'font-bold', 'uppercase', 'rounded-lg', 'border', 'border-red-500');
+   msjErr.classList.add('bg-red-50', 'text-red-500', 'p-3', 'my-5', 'text-center', 'font-semibold', 'uppercase', 'rounded-lg', 'border', 'border-red-500');
 
    if(formLogin.classList.contains('hidden')){
       if(!document.getElementById('msj-error'))
@@ -270,7 +270,7 @@ function mostrarMsjExito(mensaje){
    const msjExito = document.createElement('P');
    msjExito.id = 'msj-exito';
    msjExito.textContent = mensaje;
-   msjExito.classList.add('bg-green-50', 'text-green-500', 'p-3', 'my-5', 'text-center', 'font-bold', 'uppercase', 'rounded-lg', 'border', 'border-green-500');
+   msjExito.classList.add('bg-green-50', 'text-green-500', 'p-3', 'my-5', 'text-center', 'font-semibold', 'uppercase', 'rounded-lg', 'border', 'border-green-500');
    if(formLogin.classList.contains('hidden')){
       if(!document.getElementById('msj-error'))
       btnRegistrarse.before(msjExito);
