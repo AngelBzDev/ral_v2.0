@@ -1,4 +1,21 @@
+let grupo = document.querySelector('#grupos');
+
 $(document).ready(function(){
+
+    verificarOcupados();
+
+    mostrarAulas();
+    mostrarLab();
+
+    $("#btn-desoc").click(function(){
+        $.ajax({
+            url: '../php/desocupar.php',
+            type: 'POST',
+            success: function(r){
+                window.location.reload();
+            }
+        });
+    });
 
     $("#btn-aula").click(function(){
         if(!$('#labotarios').hasClass('hidden')){
@@ -16,12 +33,67 @@ $(document).ready(function(){
         mostrarLab();
     });
 
+    $(document).on('click', '.aula', function(){
+        let idAulaSelec = parseInt(this.firstElementChild.textContent);
+        let form = document.querySelector('#form-solicitud');
+        form.classList.remove('hidden');
+        window.location.href = "#form-solicitud";
+        //let inputAula = document.querySelector('#id-aula');
+        document.querySelector('#idAula').textContent = idAulaSelec;
+        let nombreElec = this.children[1].textContent;
+        let parrafoNom = document.querySelector('#nombre-elec');
+        parrafoNom.textContent = `Eligió el aula: ${nombreElec}`;
+    });
+
+    $(document).on('click', '.lab', function(){
+        let idLabSelec = parseInt(this.firstElementChild.textContent);
+        let form = document.querySelector('#form-solicitud');
+        form.classList.remove('hidden');
+        window.location.href = "#form-solicitud";
+        //let inputAula = document.querySelector('#id-aula');
+        document.querySelector('#idAula').textContent = idLabSelec;
+        let nombreElec = this.children[1].textContent;
+        let parrafoNom = document.querySelector('#nombre-elec');
+        parrafoNom.textContent = `Eligió el laboratorio: ${nombreElec}`;
+    });
+
     listarGrupos();
     bloquearFechas();
     deshabilitarBoton();
-    bloquearHoras();
-    bloquearHoraFin();
+    //bloquearHoras();
+    //bloquearHoraFin();
     validarSolicitud();
+
+    $('#form-solicitud').submit(function(e){
+        e.preventDefault();
+        let grupoSel = grupo.value;
+        let fecha = document.querySelector('#fecha').value;
+        let horas = document.querySelector('#hora-inicio').value + " - " + document.querySelector('#hora-fin').value;
+        let idAula = document.querySelector('#idAula').textContent;
+        let idProfe = document.querySelector('#id-profe').textContent;
+        let esAula = false;
+        if(document.querySelector('#laboratorios').classList.contains('hidden')){
+            esAula = true;
+        }
+        const datos = {
+            idProfe,
+            idAula,
+            grupoSel,
+            fecha,
+            horas,
+            esAula
+        }
+        $.post('../php/solicitar.php', datos, function(r){
+            console.log(r);
+            deshabilitarBoton();
+            const msj = document.createElement('P');
+            msj.textContent = r;
+            msj.classList.add('bg-green-50', 'text-green-500', 'p-3', 'my-5', 'text-center', 'font-semibold', 'uppercase', 'rounded-lg', 'border', 'border-green-500');
+            let p = document.querySelector('#nombre-elec');
+            p.appendChild(msj);
+            setTimeout(() => window.location.href = "../php/cerrar_sesion.php", 5000);
+        });
+    });
 });
 
 //Funcion para mostrar la lista de aulas
@@ -35,7 +107,8 @@ function mostrarAulas(){
             json.forEach(aula => {
                 template += `
                 <li>
-                    <button class=" w-full py-8 text-center text-xl md:text-2xl flex justify-around hover:bg-green-50 hover:border-green-500 items-center rounded-lg border-b border-gray-300 estatus">
+                    <button class=" w-full py-8 text-center text-xl md:text-2xl flex justify-around hover:bg-green-50 hover:border-green-500 items-center rounded-lg border-b border-gray-300 estatus aula">
+                        <p class="hidden">${aula.id}</p>
                         <p class="flex-1 font-semibold">${aula.nombre_aula}</p>`;
                 if(aula.estatus === 'o'){
                     //$('li a').prop('disabled', true);
@@ -76,7 +149,8 @@ function mostrarLab(){
             json.forEach(lab => {
                 template += `
                 <li>
-                    <button class="w-full py-8 text-center text-xl md:text-2xl flex justify-around hover:bg-green-50 hover:border-green-500 items-center rounded-lg border-b border-gray-300 estatus">
+                    <button class="w-full py-8 text-center text-xl md:text-2xl flex justify-around hover:bg-green-50 hover:border-green-500 items-center rounded-lg border-b border-gray-300 estatus lab">
+                        <p class="hidden">${lab.id}</p>
                         <p class="flex-1 font-semibold">${lab.nombre_lab}</p>`;
                 if(lab.estatus === 'o'){
                     //$('li a').prop('disabled', true);
@@ -189,11 +263,37 @@ function habilitarBoton(){
 function validarSolicitud(){
     bloquearHoras();
     bloquearHoraFin();
-    if(fecIn != '' && fecF != ''){
-        console.log(fecIn);
-        habilitarBoton();
-    }
-    else{
-        deshabilitarBoton();
+    let grupoSe = grupo.value;
+
+    if(grupoSe !== ''){
+        if(fecIn != '' && fecF != ''){
+            let fI = fecIn.split(':');
+            let fF = fecF.split(':');
+            if(parseInt(fI[0]) < parseInt(fF[0])){
+                habilitarBoton();
+            }
+            else{
+                deshabilitarBoton();
+            }
+        }
+        else{
+            deshabilitarBoton();
+        }
     }
 }
+
+function verificarOcupados(){
+    $.post('../php/ocupados.php', {idP:idP.textContent}, function(r){
+        let main = document.querySelector('#main');
+        let aviso = document.querySelector('#aviso');
+        if(r == '1'){
+            main.classList.add('hidden');
+            aviso.classList.remove('hidden');
+        }
+        else{
+            main.classList.remove('hidden');
+            aviso.classList.add('hidden');
+        }
+    });
+}
+

@@ -1,5 +1,6 @@
 <?php
    require '../php/funciones.php';
+   require '../php/config/database.php';
    $auth = verificarAutentificacion();
    if(!$auth){
       header('Location:../index.html');
@@ -32,6 +33,7 @@
       </header>
       <div class="container items-center justify-between px-6 py-6 mx-auto md:px-20 md:py-10 md:flex">
          <div class="relative entrar">
+            <p id="idP" class="hidden"><?php echo $_SESSION['idProfe']; ?></p>
             <h3 class="mb-2 text-4xl md:text-5xl font-regular text-white md:mb-5 md:text-6xl"> <?php echo $_SESSION['sexo'] === 'f' ? 'Bienvenida Profesora': 'Bienvenido Profesor'; ?></h3>
             <h3 class="mb-8 text-4xl md:text-5xl font-regular text-white md:text-6xl"><?php echo $_SESSION['nombres']?></h3>
             <a href="#eleccion" class="w-auto md:w-2/4 p-2.5 font-bold text-blue-900 uppercase transition duration-500 ease-in-out transform bg-white rounded-lg shadow hover:-translate-y-1 hover:scale-110 md:mb-5 md:mt-8 my-8 block text-center">Hacer Elección</a>
@@ -41,13 +43,18 @@
          </div>
       </div>
    </div>
-   <main id="container mx-auto">
+   <div class="container mx-auto hidden arriba my-5" id="aviso">
+      <p class="text-2xl md:text-3xl text-center">Tiene un aula o laboratorio ocupado, si desea elegir otro desocupe la actual</p>
+      <a href="#desocupar" class="w-auto md:w-2/4 p-2.5 font-bold text-white uppercase transition duration-500 ease-in-out transform bg-blue-900 rounded-lg shadow hover:-translate-y-1 hover:scale-110 md:mb-5 md:mt-8 my-8 block text-center mx-auto" id="btn-desoc">Desocupar</a>
+   </div>
+   <main class="container mx-auto" id="main">
       <div class="p-3 md:p-7 mx-3 md:mx-10 arriba my-5" id="eleccion">
          <h4 class="text-2xl md:text-3xl text-center">¿Que desea elegir?</h4>
-         <div class="grid w-full grid-cols-2 mx-auto gap-x-6 md:w-7/12 entrada2 text-center my-5">
-            <a href="#aulas" class="p-2 text-sm md:text-lg font-bold text-white uppercase transition duration-500 ease-in-out transform bg-blue-900 border-b border-blue-900 rounded-lg cursor-pointer mb-7 hover:-translate-y-1 hover:scale-110" id="btn-aula">Aula</a>
-            <a href="#laboratorios" class="p-2 text-sm md:text-lg font-bold text-white uppercase transition duration-500 ease-in-out transform bg-blue-900 border-b border-blue-900 rounded-lg cursor-pointer mb-7 hover:-translate-y-1 hover:scale-110" id="btn-lab">Laboratorio</a>
+         <div class="grid w-full grid-cols-2 mx-auto gap-x-6 md:w-7/12 entrada2 text-center mt-5">
+            <a href="#aulas" class="p-2 text-sm md:text-lg font-bold text-white uppercase transition duration-500 ease-in-out transform bg-blue-900 border-b border-blue-900 rounded-lg cursor-pointer mb-2 hover:-translate-y-1 hover:scale-110" id="btn-aula">Aula</a>
+            <a href="#laboratorios" class="p-2 text-sm md:text-lg font-bold text-white uppercase transition duration-500 ease-in-out transform bg-blue-900 border-b border-blue-900 rounded-lg cursor-pointer mb-2 hover:-translate-y-1 hover:scale-110" id="btn-lab">Laboratorio</a>
          </div>
+         <p class="text-center mb-5">Si desea actualizar la lista presione nuevamente el botón</p>
          <div class="hidden entrar" id="aulas">
             <p class="text-2xl md:text-3xl text-center mb-5">Elija su Aula</p>
             <ul id="lista-aulas"></ul>
@@ -56,12 +63,16 @@
             <p class="text-2xl md:text-3xl text-center mb-5">Elija su Laboratorio</p>
             <ul id="lista-lab"></ul>
          </div>
-         <div class="form-eleccion mt-10">
+         <div id="form-solicitud" class="form-eleccion mt-10 hidden entrar" action="POST">
+            <p id="nombre-elec" class="text-2xl md:text-3xl text-center mb-5"></p>
             <form class="w-full mx-auto mt-6 text-left md:w-7/12 entrar">
                <div class="block md:grid grid-cols-2 gap-x-4">
                   <div class="mb-2">
+                     <p class="hidden" id="id-profe"><?php echo $_SESSION['idProfe']; ?></p>
+                     <!--<input type="hidden" name="id-aula">-->
+                     <p id="idAula" class="hidden"></p>
                      <label class="font-normal" for="grupo">Elija un grupo:</label>
-                     <select name="grupo" id="grupos" class="mt-1 w-full block py-2 px-3 border border-gray-300 bg-white rounded-lg shadow-sm focus:outline-none focus:ring-iblue-900 focus:border-blue-900">
+                     <select name="grupo" id="grupos" class="mt-1 w-full block py-2 px-3 border border-gray-300 bg-white rounded-lg shadow-sm focus:outline-none focus:ring-iblue-900 focus:border-blue-900" onchange="validarSolicitud()">
                      </select>
                   </div>
                   <div class="mb-2">
@@ -71,14 +82,15 @@
                </div>
                <div class="block md:grid grid-cols-2 gap-x-4">
                   <div class="mb-2">
-                     <label class="font-normal" for="hora-inicio">Hora de inicio</label>
+                     <label class="font-normal" for="hora-inicio">Hora de inicio:</label>
                      <input type="time" name="hora-inicio" id="hora-inicio" class="mt-1 w-full block py-2 px-3 border border-gray-300 bg-white rounded-lg shadow-sm focus:outline-none focus:ring-iblue-900 focus:border-blue-900">
                   </div>
                   <div class="mb-2">
-                     <label class="font-normal" for="hora-fin">Hora de fin</label>
-                     <input type="time" name="hora-fin" id="hora-fin" class="mt-1 w-full block py-2 px-3 border border-gray-300 bg-white rounded-lg shadow-sm focus:outline-none focus:ring-iblue-900 focus:border-blue-900" min="12:00">
+                     <label class="font-normal" for="hora-fin">Hora de fin:</label>
+                     <input type="time" name="hora-fin" id="hora-fin" class="mt-1 w-full block py-2 px-3 border border-gray-300 bg-white rounded-lg shadow-sm focus:outline-none focus:ring-iblue-900 focus:border-blue-900">
                   </div>
                </div>
+               <p>* Seleccione horas entre las 07:00 y 21:00</p>
                <div class="justify-end flex"><input type="submit" value="Solicitar aula" class="p-2 text-sm md:text-lg font-bold text-white uppercase transition duration-500 ease-in-out transform bg-blue-900 border-b border-blue-900 rounded-lg cursor-pointer my-5 hover:-translate-y-1 hover:scale-110 md:w-2/6 w-full" id="solicitar"></div>
             </form>
          </div>

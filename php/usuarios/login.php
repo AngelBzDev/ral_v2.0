@@ -23,9 +23,9 @@
          $_SESSION['login'] = true;
          $_SESSION['nombres'] = $usuario['nombres'];
          $_SESSION['sexo'] = $usuario['sexo'];
+         $_SESSION['idProfe'] = $usuario['id'];
 
          echo $respuesta = 1;
-         // var_dump($_SESSION);
       }
       else{
          echo $respuesta = 2;
